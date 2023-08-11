@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers\Post;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Post\PostResource;
+use App\Models\Post;
+use Illuminate\Http\Request;
+
+class ShowController extends BaseController
+{
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke(Post $post)
+    {
+        return new PostResource($post);
+        //return view('post.show', compact('post'));
+    }
+}
